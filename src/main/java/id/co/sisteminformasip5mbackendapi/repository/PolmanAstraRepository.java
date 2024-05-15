@@ -11,11 +11,12 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class PoltekAstraRepository {
+public class PolmanAstraRepository {
+
     private Connection oConnection;
     private PreparedStatement oCommand;
 
-    public PoltekAstraRepository(@Value("${spring.datasource.url}") String url,
+    public PolmanAstraRepository(@Value("${spring.datasource.url}") String url,
                                  @Value("${spring.datasource.username}") String username,
                                  @Value("${spring.datasource.password}") String password) {
         try {

@@ -1,6 +1,6 @@
 package id.co.sisteminformasip5mbackendapi.service.impl;
 
-import id.co.sisteminformasip5mbackendapi.repository.PoltekAstraRepository;
+import id.co.sisteminformasip5mbackendapi.repository.PolmanAstraRepository;
 import id.co.sisteminformasip5mbackendapi.service.UtilitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.Map;
 @Transactional
 public class UtilitiesServiceImpl implements UtilitiesService {
     @Autowired
-    PoltekAstraRepository poltekAstraRepository;
+    PolmanAstraRepository polmanAstraRepository;
 
     @Override
     public String login(Map<String, Object> data) {
@@ -22,7 +22,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("sso_getAuthenticationProduksi", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("sso_getAuthenticationProduksi", dataList.toArray(new String[0]));
         if (result == null || result.isEmpty() || result.equals("[]")) {
             return "{\"Status\":\"LOGIN FAILED\"}";
         }
@@ -35,7 +35,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("all_getListMenu", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("all_getListMenu", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -45,7 +45,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("pro_getListProvinsi", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("pro_getListProvinsi", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -55,7 +55,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("pro_getListKabupaten", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("pro_getListKabupaten", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -65,7 +65,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("pro_getListKecamatan", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("pro_getListKecamatan", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -75,7 +75,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("pro_getListKelurahan", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("pro_getListKelurahan", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -85,7 +85,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("pro_getListKaryawan", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("pro_getListKaryawan", dataList.toArray(new String[0]));
         return result;
     }
 }

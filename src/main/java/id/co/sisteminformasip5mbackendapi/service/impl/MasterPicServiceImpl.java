@@ -1,6 +1,6 @@
 package id.co.sisteminformasip5mbackendapi.service.impl;
 
-import id.co.sisteminformasip5mbackendapi.repository.PoltekAstraRepository;
+import id.co.sisteminformasip5mbackendapi.repository.PolmanAstraRepository;
 import id.co.sisteminformasip5mbackendapi.service.MasterPicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.Map;
 @Transactional
 public class MasterPicServiceImpl implements MasterPicService {
     @Autowired
-    PoltekAstraRepository poltekAstraRepository;
+    PolmanAstraRepository polmanAstraRepository;
 
     @Override
     public String getDataPic(Map<String, Object> data) {
@@ -22,7 +22,7 @@ public class MasterPicServiceImpl implements MasterPicService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("p5m_getDataPic", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("p5m_getDataPic", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -32,7 +32,7 @@ public class MasterPicServiceImpl implements MasterPicService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("p5m_getDataPicById", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("p5m_getDataPicById", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -42,7 +42,7 @@ public class MasterPicServiceImpl implements MasterPicService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("p5m_createPic", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("p5m_createPic", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -52,7 +52,7 @@ public class MasterPicServiceImpl implements MasterPicService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("p5m_detailPic", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("p5m_detailPic", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -62,7 +62,7 @@ public class MasterPicServiceImpl implements MasterPicService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("p5m_editPic", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("p5m_editPic", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -72,7 +72,7 @@ public class MasterPicServiceImpl implements MasterPicService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("p5m_setStatusPic", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("p5m_setStatusPic", dataList.toArray(new String[0]));
         return result;
     }
 
@@ -82,7 +82,7 @@ public class MasterPicServiceImpl implements MasterPicService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = poltekAstraRepository.callProcedure("p5m_getListPic", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("p5m_getListPic", dataList.toArray(new String[0]));
         return result;
     }
 }
