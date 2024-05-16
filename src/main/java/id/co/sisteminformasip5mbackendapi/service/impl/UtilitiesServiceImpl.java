@@ -22,7 +22,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             dataList.add(entry.getValue().toString());
         }
-        String result = polmanAstraRepository.callProcedure("sso_getAuthenticationProduksi", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("sso_getAuthenticationP5m", dataList.toArray(new String[0]));
         if (result == null || result.isEmpty() || result.equals("[]")) {
             return "{\"Status\":\"LOGIN FAILED\"}";
         }
