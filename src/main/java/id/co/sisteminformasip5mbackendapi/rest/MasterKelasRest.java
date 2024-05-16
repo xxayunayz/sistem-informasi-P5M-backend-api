@@ -15,7 +15,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/MasterKelas")
 public class MasterKelasRest {
-    /*@Autowired
+    @Autowired
     private MasterKelasService masterKelasService;
 
     @Autowired
@@ -25,7 +25,18 @@ public class MasterKelasRest {
     public ResponseEntity<String> getDataKelas(@RequestBody Map<String, Object> data) {
         try {
             Map<String, Object> encodedData = encodeData.htmlEncodeObject(data);
-            String result = masterKelasService.getKelas(encodedData);
+            String result = masterKelasService.getDataKelas(encodedData);
+            return ResponseEntity.ok().body(result);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to get data", e);
+        }
+    }
+
+    @PostMapping("/GetDataKelasById")
+    public ResponseEntity<String> getDataKelasById(@RequestBody Map<String, Object> data) {
+        try {
+            Map<String, Object> encodedData = encodeData.htmlEncodeObject(data);
+            String result = masterKelasService.getDataKelasById(encodedData);
             return ResponseEntity.ok().body(result);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to get data", e);
@@ -33,46 +44,57 @@ public class MasterKelasRest {
     }
 
     @PostMapping("/CreateKelas")
-    public ResponseEntity<String> createKursProses(@RequestBody Map<String, Object> data) {
+    public ResponseEntity<String> createKelas(@RequestBody Map<String, Object> data) {
         try {
             Map<String, Object> encodedData = encodeData.htmlEncodeObject(data);
-            String result = masterKursProsesService.createKursProses(encodedData);
+            String result = masterKelasService.createKelas(encodedData);
+            return ResponseEntity.ok().body(result);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to create data", e);
+        }
+    }
+
+    @PostMapping("/DetailKelas")
+    public ResponseEntity<String> detailKelas(@RequestBody Map<String, Object> data) {
+        try {
+            Map<String, Object> encodedData = encodeData.htmlEncodeObject(data);
+            String result = masterKelasService.detailKelas(encodedData);
             return ResponseEntity.ok().body(result);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to get data", e);
         }
     }
 
-    @PostMapping("/DetailKursProses")
-    public ResponseEntity<String> detailKursProses(@RequestBody Map<String, Object> data) {
+    @PostMapping("/EditKelas")
+    public ResponseEntity<String> editKelas(@RequestBody Map<String, Object> data) {
         try {
             Map<String, Object> encodedData = encodeData.htmlEncodeObject(data);
-            String result = masterKursProsesService.detailKursProses(encodedData);
+            String result = masterKelasService.editKelas(encodedData);
             return ResponseEntity.ok().body(result);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to get data", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to edit data", e);
         }
     }
 
-    @PostMapping("/GetHargaLamaByProses")
-    public ResponseEntity<String> getHargaLamaByProses(@RequestBody Map<String, Object> data) {
+    @PostMapping("/SetStatusKelas")
+    public ResponseEntity<String> setStatusKelas(@RequestBody Map<String, Object> data) {
         try {
             Map<String, Object> encodedData = encodeData.htmlEncodeObject(data);
-            String result = masterKursProsesService.getHargaLamaByProses(encodedData);
+            String result = masterKelasService.setStatusKelas(encodedData);
             return ResponseEntity.ok().body(result);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to get data", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to set status", e);
         }
     }
 
-    @PostMapping("/GetRiwayatKursProses")
-    public ResponseEntity<String> getRiwayatKursProses(@RequestBody Map<String, Object> data) {
+    @PostMapping("/GetListKelas")
+    public ResponseEntity<String> getListKelas(@RequestBody Map<String, Object> data) {
         try {
             Map<String, Object> encodedData = encodeData.htmlEncodeObject(data);
-            String result = masterKursProsesService.getRiwayatKursProses(encodedData);
+            String result = masterKelasService.getListKelas(encodedData);
             return ResponseEntity.ok().body(result);
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to get data", e);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to get list", e);
         }
-    }*/
+    }
 }
